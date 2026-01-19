@@ -10,7 +10,7 @@
     <script type="text/javascript" src="js/script.min.js?v=21"></script>
     <script type="text/javascript" src="js/common.min.js?v=75"></script>
     <link rel="stylesheet" type="text/css" href="css/food.min.css?v=73" />
-    <script type="text/javascript" src="js/food.min.js?v=235"></script>
+    <script type="text/javascript" src="js/food.min.js?v=236"></script>
     <link rel="stylesheet" type="text/css" href="css/image.css?v=173" />
     <script>
         $(function () {
@@ -439,6 +439,29 @@
                                     <option value='31' data-subtext="个人数据, 该列点击可编辑, 用来记录你是否已拥有该厨师">已有</option>
                                 </select>
                             </div>
+                            <div class="inline-wrapper" data-toggle="tooltip" title="是否使用遗玉加成">
+                                <input type="checkbox" id="chk-chef-apply-ambers" data-toggle="toggle" data-on="遗玉加成开"
+                                    data-off="遗玉加成关" data-onstyle="default" data-width="105px" checked>
+                            </div>
+                            <div class="inline-wrapper select-wrapper chef-apply-ambers" data-toggle="tooltip" title="批量应用遗玉（每种颜色最多1个，总共最多3个）">
+                                <select id="chk-chef-apply-amber-select" multiple class="selectpicker monitor-none"
+                                    data-width="150px" data-dropdown-align-right='auto' 
+                                    data-none-selected-text="批量应用遗玉"
+                                    data-live-search="true" data-live-search-placeholder="查找"
+                                    data-none-results-text="没有找到"
+                                    data-max-options="3"
+                                    data-selected-text-format="count>0"
+                                    data-count-selected-text="{0} 遗玉"
+                                    data-actions-box="true"
+                                    data-actions-box-only-clear="true"
+                                    data-deselect-all-text="清空">
+                                </select>
+                            </div>
+                            <label class="btn btn-default chef-apply-ambers" data-toggle="tooltip" title="将所有厨师心法盘设置为满级">
+                                <input type="checkbox" id="chk-chef-max-disk-level" class="monitor-none">
+                                <i class="fa fa-check glyphicon glyphicon-ok"></i>
+                                默认满级心法盘
+                            </label>
                             <div class="inline-wrapper" data-toggle="tooltip" title="是否使用厨具加成">
                                 <input type="checkbox" id="chk-chef-apply-equips" data-toggle="toggle" data-on="厨具加成开"
                                     data-off="厨具加成关" data-onstyle="default" data-width="105px" checked>
@@ -454,8 +477,7 @@
                                     <option value="" selected class="hidden"></option>
                                 </select>
                             </div>
-                            <div class="inline-wrapper" data-toggle="tooltip" title="是否使用修炼加成"></div>
-                            <div class="inline-wrapper" data-toggle="tooltip" title="是否使用修炼加成"></div>
+                            <div class="inline-wrapper" data-toggle="tooltip" title="是否使用修炼加成">
                                 <input type="checkbox" id="chk-chef-apply-ultimate" data-toggle="toggle" data-on="修炼加成开"
                                     data-off="修炼加成关" data-onstyle="default" data-width="105px" checked>
                             </div>
@@ -1136,7 +1158,7 @@
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         已配遗玉
                                     </label>
-                                    <label class="btn btn-default" data-toggle="tooltip" title="选择厨师时自动将心法盘等级设置为5级">
+                                    <label class="btn btn-default" data-toggle="tooltip" title="选择厨师时自动将心法盘等级设置为满级">
                                         <input type="checkbox" id="chk-cal-max-disk">
                                         <i class="fa fa-check glyphicon glyphicon-ok"></i>
                                         默认满级心法盘
