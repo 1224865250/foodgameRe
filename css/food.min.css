@@ -1693,11 +1693,13 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
 }
 
 .calc-result-row.calc-data-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
     margin-bottom: 8px;
     padding: 5px 0;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .calc-result-row.calc-data-row .calc-result-item {
@@ -1706,12 +1708,15 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
     gap: 5px;
     justify-content: flex-start;
     padding: 0 10px;
+    white-space: nowrap;
+    flex: 0 0 auto;
 }
 
 .calc-result-item {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
 }
 
 .calc-result-item label {
