@@ -1693,13 +1693,11 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
 }
 
 .calc-result-row.calc-data-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
     margin-bottom: 8px;
     padding: 5px 0;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 .calc-result-row.calc-data-row .calc-result-item {
@@ -1709,7 +1707,8 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
     justify-content: flex-start;
     padding: 0 10px;
     white-space: nowrap;
-    flex: 0 0 auto;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .calc-result-item {
@@ -1725,12 +1724,46 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
     color: #333;
     white-space: nowrap;
     font-size: 13px;
+    flex-shrink: 0;
 }
 
 .calc-result-item .value {
     font-weight: bold;
     color: #000;
     font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+/* 当容器宽度小于800px时，缩小字体 */
+@media (max-width: 550px) {
+    .calc-result-item label {
+        font-size: 12px;
+    }
+    
+    .calc-result-item .value {
+        font-size: 12px;
+    }
+    
+    .calc-result-item .value.highlight {
+        font-size: 13px;
+    }
+}
+
+/* 当容器宽度小于500px时，进一步缩小字体 */
+@media (max-width: 450px) {
+    .calc-result-item label {
+        font-size: 11px;
+    }
+    
+    .calc-result-item .value {
+        font-size: 11px;
+    }
+    
+    .calc-result-item .value.highlight {
+        font-size: 12px;
+    }
 }
 
 .calc-result-item .value.highlight {
@@ -1902,25 +1935,18 @@ table.dataTable tr.selected td.select-checkbox:after,table.dataTable tr.selected
         max-width: 100%;
     }
     
-    /* 让按钮所在的容器占满整行 */
     .calc-result-row.calc-data-row .calc-result-item:last-child {
-        grid-column: 1 / -1;
-        justify-content: center;
+        justify-content: flex-start;
     }
 }
 
-/* 超小屏幕（宽度小于450px）进一步调整 */
+/* 超小屏幕 */
 @media (max-width: 450px) {
-    /* 改为2列布局 */
+    /* 保持3列布局*/
     .calc-result-row.calc-data-row {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     }
     
-    /* 按钮独占一行 */
-    .calc-result-row.calc-data-row .calc-result-item:last-child {
-        grid-column: 1 / -1;
-        justify-content: center;
-    }
     
     #sync-guest-double {
         font-size: 13px;
